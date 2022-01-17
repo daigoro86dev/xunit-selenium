@@ -1,10 +1,10 @@
+using EATestFramework.Driver;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumXUnitBasic.Driver;
 using System;
 using Xunit;
 
-namespace SeleniumXUnitBasic
+namespace EATestFramework
 {
     public class UnitTest2 : IDisposable
     {
@@ -18,10 +18,10 @@ namespace SeleniumXUnitBasic
 
         public void Dispose()
         {
-            
+
             driver.Quit();
             driver.Dispose();
-            
+
         }
 
         [Fact]

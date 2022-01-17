@@ -5,7 +5,7 @@ using OpenQA.Selenium.Firefox;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace SeleniumXUnitBasic.Driver
+namespace EATestFramework.Driver
 {
     public class BrowserDriver : IBrowserDriver
     {

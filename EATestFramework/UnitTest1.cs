@@ -1,10 +1,10 @@
+using EATestFramework.Driver;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumXUnitBasic.Driver;
 using System;
 using Xunit;
 
-namespace SeleniumXUnitBasic
+namespace EATestFramework
 {
     public class UnitTest1 : IDisposable
     {
