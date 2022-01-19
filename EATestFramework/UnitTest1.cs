@@ -8,7 +8,7 @@ namespace EATestFramework
 {
     public class UnitTest1 : IDisposable
     {
-        IWebDriver? driver;
+        IWebDriver driver;
 
         public UnitTest1(IDriverFixture driverFixture)
         {

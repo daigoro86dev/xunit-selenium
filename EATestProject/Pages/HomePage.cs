@@ -7,12 +7,15 @@ namespace EATestProject.Pages
     {
         private readonly IWebDriver _driver;
 
-        public HomePage(IDriverFixture driverFixture)
-        {
-            _driver = driverFixture.Driver;
-        }
-
+        public HomePage(IDriverFixture driverFixture) => _driver = driverFixture.Driver;
+        
         IWebElement lnkProduct => _driver.FindElement(By.LinkText("Product"));
-        IWebElement lnCreate => _driver.FindElement(By.LinkText("Create"));
+        IWebElement lnkCreate => _driver.FindElement(By.LinkText("Create"));
+
+        public void CreateProduct()
+        {
+            lnkProduct.Click();
+            lnkCreate.Click();
+        }
     }
 }
