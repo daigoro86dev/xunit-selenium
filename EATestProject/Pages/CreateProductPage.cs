@@ -5,14 +5,19 @@ using OpenQA.Selenium.Support.UI;
 
 namespace EATestProject.Pages
 {
-    internal class CreateProductPage
+    public interface ICreateProductPage
+    {
+        void EnterProductDetails(Product product);
+    }
+
+    public class CreateProductPage : ICreateProductPage
     {
         private readonly IWebDriver _driver;
 
         public CreateProductPage(IDriverFixture driverFixture) => _driver = driverFixture.Driver;
 
         IWebElement txtName => _driver.FindElement(By.Id("Name"));
-        IWebElement txtDescription =>  _driver.FindElement(By.Id("Description"));
+        IWebElement txtDescription => _driver.FindElement(By.Id("Description"));
         IWebElement txtPrice => _driver.FindElement(By.Id("Price"));
         IWebElement ddlProductType => _driver.FindElement(By.Id("ProductType"));
         IWebElement btnCreate => _driver.FindElement(By.Id("Create"));

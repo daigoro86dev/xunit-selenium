@@ -7,17 +7,18 @@ using Xunit;
 
 namespace EATestProject
 {
-    public class UnitTest1
+    public class UnitTest1 : IDisposable
     {
-        private readonly IDriverFixture driverFixture;
-        
+        private readonly IHomePage homePage;
+        private readonly ICreateProductPage createProductPage;
         IWebDriver driver;
 
-        public UnitTest1(IDriverFixture driverFixture)
+        public UnitTest1(IDriverFixture driverFixture, IHomePage homePage, ICreateProductPage createProductPage)
         {
             driver = driverFixture.Driver;
             driver.Navigate().GoToUrl(new Uri("http://localhost:5001/"));
-            this.driverFixture = driverFixture;
+            this.homePage = homePage;
+            this.createProductPage = createProductPage;
         }
 
         public void Dispose()
@@ -29,13 +30,10 @@ namespace EATestProject
         [Fact]
         public void Test1()
         {
-            HomePage homePage = new HomePage(driverFixture);
-            CreateProductPage createProductPage = new CreateProductPage(driverFixture);
-
             homePage.CreateProduct();
             createProductPage.EnterProductDetails(new Product
-            { 
-                Name= "AutoProduct",
+            {
+                Name = "AutoProduct",
                 Description = "AutoDescription",
                 Price = 12345,
                 ProductType = ProductType.PERIPHARALS
